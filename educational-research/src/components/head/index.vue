@@ -1,6 +1,21 @@
 <template>
   <div class="head">
-    <div class="headtext">头</div>
+    <div class="headtext">
+      <div class="zhankaiOrshoqi">
+        <el-tooltip class="item" effect="dark" v-if="$store.state.isCollapse == true" content="展开" placement="right">
+          <i class="iconfont iconzhankai"  @click="zhuangtai(false)"></i>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark"  v-else content="收起" placement="right">
+          <i class="iconfont iconshouqi" @click="zhuangtai(true)"></i>
+        </el-tooltip>
+        
+        <!-- <el-radio-group v-model="isCollapse">
+          
+            <el-radio-button :label="false"><i class="iconfont iconzhankai"></i></el-radio-button>
+            <el-radio-button :label="true"><i class="iconfont iconshouqi"></i></el-radio-button>
+        </el-radio-group> -->
+      </div>
+    </div>
     <div class="headrouter">
       <el-breadcrumb separator="/">
         <!-- <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item> -->
@@ -17,6 +32,12 @@ export default {
   data () {
     return {
       
+    }
+  },
+  methods:{
+    zhuangtai(val){
+      // localStorage.isCollapse = val
+      this.$store.commit('setisCollapse',val)
     }
   }
 }

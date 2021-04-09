@@ -1,11 +1,7 @@
 <template>
-  <div class="menulist">
-    <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
-      :collapse="isCollapse" -->
+  <div :class="$store.state.isCollapse == false ? 'menulist':'menulista'">
     <el-menu
+      :collapse="$store.state.isCollapse"
       background-color="#091325"
       class="el-menu-vertical-demo"
       @open="handleOpen"
@@ -14,11 +10,11 @@
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">导航一</span>
+          <span slot="title">活动列表</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
+          <el-menu-item index="1-1">活动列表</el-menu-item>
+          <el-menu-item index="1-2">活动列表</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="2">
@@ -40,7 +36,6 @@
 export default {
   data() {
     return {
-      isCollapse: false,
     };
   },
   methods: {

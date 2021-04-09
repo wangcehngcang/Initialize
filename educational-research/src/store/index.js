@@ -6,11 +6,12 @@ Vue.use(Vuex)
 
 export default new Store({
   state:{
-    
+    isCollapse:false,
   },
   mutations:{
-    // setschool(state,row){
-    //   state.school = row
-    // }
+    setisCollapse(state,row){
+      state.isCollapse = row
+      console.log(state.isCollapse)
+    }
   }
 })
